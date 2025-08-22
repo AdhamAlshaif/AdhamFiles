@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Theme override to display an artist form node.
+ */
+#}
+{{ attach_library('radix2/artist-profile') }}
+<article{{ attributes.addClass('node', 'node--type-' ~ node.bundle|clean_class, view_mode ? 'node--view-mode-' ~ view_mode|clean_class) }}>
+  <div class="custom-user-profile">
+  
+    <!-- Header: Name and Organization -->
+    <div class="artist-header">
+      <h1 class="bold">{{ content.field_full_name }}</h1>      
+      <span class="organization-name bold">
+        {{ content.field_organization }}
+      </span>
+    </div>
+    
+    <!-- Profile Image -->
+    <div class="image-container">
+      {{ content.field_profile_image }}
+    </div>
+    
+    <!-- Main Info Section -->
+    <div class="artist-information">
+      <!-- Sidebar: Details -->
+      <div class="side-info">
+        <div class="line-divide"></div>
+        <span>Pronouns: {{ content.field_pronouns|render }}</span>
+        <div class="line-divide"></div>
+        <span>Art Form: {{ content.field_art_form|render }}</span>
+        <div class="line-divide"></div>
+        <span>
+          Address: {{ address_city }}, {{ address_state }}
+        </span>
+        <div class="line-divide"></div>
+        <span>Open to Work: {{ content.field_open_to_work|render }}</span>
+        <div class="line-divide"></div>
+        <span>Email: {{ content.field_email|render }}</span>
+        <div class="line-divide"></div>
+        <span>Other Social Medias:
+          {% for link in social_links %}
+            <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a>{% if not loop.last %}, {% endif %}
+          {% else %}
+            None
+          {% endfor %}
+        </span>
+        <div class="line-divide"></div>
+      </div>
+      
+      <!-- Description Section -->
+      <div class="description-container">
+        {{ content.field_description }}
+      </div>
+    </div>
+  </div>
+</article>

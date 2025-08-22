@@ -1,0 +1,69 @@
+{#
+/**
+ * @file
+ * Theme override to display an institution form node.
+ */
+#}
+{{ attach_library('radix2/artist-profile') }}
+<article{{ attributes.addClass('node', 'node--type-' ~ node.bundle|clean_class, view_mode ? 'node--view-mode-' ~ view_mode|clean_class) }}>
+  <div class="custom-user-profile">
+  
+    <!-- Header: Name and Organization -->
+    <div class="artist-header">
+      <h1 class="bold">{{ content.field_name_of_institution }}</h1>      
+      <span class="organization-name bold">
+        {{ content.field_institution_website }}
+      </span>
+    </div>
+    
+    <!-- Profile Image -->
+    <div class="image-container">
+      {{ content.field_user_profile_image }}
+    </div>
+    
+    <!-- Main Info Section -->
+    <div class="artist-information">
+      <!-- Sidebar: Details -->
+      <div class="side-info">
+        <div class="line-divide"></div>
+        <span>Institution Version: {{ content.field_institution_version|render }}</span>
+        <div class="line-divide"></div>
+        <span>Website URL: {{ content.field_website_url|render }}</span>
+        <div class="line-divide"></div>
+        <span>Social Media Links: {{ content.field_social_media_links|render }}</span>
+        <div class="line-divide"></div>
+        <span>
+          Address: {{ address_city }}, {{ address_state }}, {{ address_country }}
+        </span>
+        <div class="line-divide"></div>
+        <span>Type of Institution: {{ content.field_type_of_institution|render }}</span>
+        <div class="line-divide"></div>
+        <span>Services Provided: {{ content.field_services_provided|render }}</span>
+        <div class="line-divide"></div>
+        <span>Government Programs: {{ content.field_gov_programs|render }}</span>
+        <div class="line-divide"></div>
+        <span>Partners: {{ content.field_partners|render }}</span>
+        <div class="line-divide"></div>
+        <span>Name of Contact: {{ content.field_name_of_contact|render }}</span>
+        <div class="line-divide"></div>
+        <span>Email: {{ content.field_email|render }}</span>
+        <div class="line-divide"></div>
+        <span>Phone Number: {{ content.field_phone_number|render }}</span>
+        <div class="line-divide"></div>
+        <span>Other Social Medias:
+          {% for link in social_links %}
+            <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a>{% if not loop.last %}, {% endif %}
+          {% else %}
+            None
+          {% endfor %}
+        </span>
+        <div class="line-divide"></div>
+      </div>
+      
+      <!-- Description Section -->
+      <div class="description-container">
+        {{ content.field_description }}
+      </div>
+    </div>
+  </div>
+</article>

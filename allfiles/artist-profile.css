@@ -1,0 +1,62 @@
+.custom-user-profile {
+    font-family: sans-serif;
+}
+.custom-user-profile p {
+    font-size: 1.2em;
+    overflow-wrap: break-word;
+}
+.custom-user-profile .artist-header {
+    text-align: center;
+}
+.custom-user-profile .organization-name {
+    color: rgb(214, 26, 58);
+    margin-bottom: 6%;
+}
+.custom-user-profile .artist-image {
+    width: 50%;
+}
+.custom-user-profile .image-container {
+    text-align: center;
+}
+.custom-user-profile .artist-information {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.custom-user-profile .side-info {
+    width: 25vw;
+    margin-right: 5vw;
+    margin-left: -2vw;
+
+}
+
+.custom-user-profile .line-divide {
+    border-bottom: 1px solid black;
+    margin-bottom: .5vw;
+    width: 100%;
+}
+
+.custom-user-profile .side-info span {
+    display: block;
+    margin-bottom: .5vw;
+}
+
+.custom-user-profile .side-info span * {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+
+
+
+
+.custom-user-profile .description-container {
+    width: 95vw;
+    margin-left: 1%;
+}
+
+
